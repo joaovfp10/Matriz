@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Matriz
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] matriz1 = { { 3, 1, 3 }, { 6, 5, 5 } };
+            int[,] matriz2 = { { 100, 50 }, { 50, 100 }, { 50, 50 } };
+
+            
+            int linhasMatriz1 = 2;
+            int colunasMatriz1 = 3;
+            int linhasMatriz2 = 3;
+            int colunasMatriz2 = 2;
+
+            
+            int[,] matrizResultado = new int[linhasMatriz1, colunasMatriz2];
+
+            
+            for (int i = 0; i < linhasMatriz1; i++)
+            {
+                for (int j = 0; j < colunasMatriz2; j++)
+                {
+                    for (int k = 0; k < colunasMatriz1; k++)
+                    {
+                        matrizResultado[i, j] += matriz1[i, k] * matriz2[k, j];
+                    }
+                }
+            }
+
+            
+            Console.WriteLine("Resultado da multiplicação:");
+            for (int i = 0; i < linhasMatriz1; i++)
+            {
+                for (int j = 0; j < colunasMatriz2; j++)
+                {
+                    Console.Write(matrizResultado[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
